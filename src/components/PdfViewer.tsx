@@ -166,7 +166,7 @@ const PdfViewer = forwardRef<PdfViewerRef, PdfViewerProps>(({ url }, ref) => {
       if (err?.name === 'UnknownErrorException' || err?.message?.includes('Failed to fetch')) {
         errorMessage = 'CORS Error: PDF server does not allow access from this domain. Try using a different PDF URL.';
       } else if (err?.name === 'InvalidPDFException') {
-        errorMessage = 'Invalid PDF file or corrupted PDF document.';
+        errorMessage = 'Invalid PDF file or corrupted PDF document. Please ensure the file is a valid PDF.';
       } else if (err?.name === 'MissingPDFException') {
         errorMessage = 'PDF file not found. Please check the URL.';
       } else if (err?.name === 'UnexpectedResponseException') {
