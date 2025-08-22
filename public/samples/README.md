@@ -4,9 +4,9 @@ This directory contains sample PDF documents for testing the gesture and voice-c
 
 ## Available Samples
 
-- `sample-1.pdf` - Simple text document with multiple pages
-- `sample-2.pdf` - Document with images and links
-- `sample-3.pdf` - Multi-page technical document
+- `Benchmark 1.pdf` - Multi-page benchmark document (86KB)
+- `Pdf_reference_Part11.pdf` - PDF reference documentation (152KB)
+- `Reimbursement_DeleteFAS.pdf` - Reimbursement document (203KB)
 
 ## Usage
 
