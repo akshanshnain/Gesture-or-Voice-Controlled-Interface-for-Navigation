@@ -163,7 +163,7 @@ const App: React.FC = () => {
 
       case 'loadPdf':
         console.log('🖼️ Loading sample PDF...');
-        setCurrentPdfUrl('/samples/sample-1.pdf');
+        setCurrentPdfUrl('/samples/Benchmark 1.pdf');
         break;
 
       case 'closePdf':
@@ -403,7 +403,7 @@ const App: React.FC = () => {
             <h2>PDF Controls</h2>
             <div style={{ marginBottom: '20px' }}>
               <button 
-                onClick={() => setCurrentPdfUrl('/samples/sample-1.pdf')}
+                onClick={() => setCurrentPdfUrl('/samples/Benchmark 1.pdf')}
                 style={{ 
                   background: '#007bff', 
                   color: 'white', 
