@@ -1,119 +1,54 @@
-# Gesture or Voice-Controlled Interface for Navigation
+# Gesture & Voice-Controlled Navigation Interface
 
-A hands-free navigation prototype that enables users to interact with websites and documents using either:
-- **Voice commands** (via Web Speech API)
-- **Hand gestures** (via MediaPipe/OpenCV)
+A hands-free web navigation prototype that enables users to browse websites and PDF documents using voice commands and hand gestures. Built with React, TypeScript, and Web APIs, this application provides an accessible alternative to traditional keyboard and mouse navigation, making web browsing easier for users with limited mobility or those who prefer hands-free interaction.
 
-🎯 **Goal**: Improve accessibility for people with limited mobility by providing an alternative to keyboard and mouse navigation.
+## 🚀 Quick Start
 
-## ✨ Features
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Open http://localhost:3000 in your browser
+```
+
+## 🎯 Demo Features
 
 ### Voice Commands
-- **Scroll**: "Scroll up" / "Scroll down" - Navigate through content
-- **Zoom**: "Zoom in" / "Zoom out" - Adjust page zoom level
-- **Link Navigation**: "Open link [number]" - Focus on specific link by number
-- **Toggle**: "Show links" / "Toggle links" - Display/hide link numbers
-- **Activation**: "Activate" / "Click" - Click the currently focused element
+- **"Scroll up/down"** - Navigate through content
+- **"Zoom in/out"** - Adjust page zoom level  
+- **"Show links"** - Display numbered link overlays
+- **"Open link 3"** - Focus on specific link by number
+- **"Activate"** - Click the currently focused element
+- **"Load sample PDF"** - Open a sample PDF document
+- **"Next page" / "Previous page"** - Navigate PDF pages
 
-### Gesture Controls
+### Hand Gestures
 - **Swipe up/down** - Scroll through content
 - **Pinch** - Toggle link number display
-- **Thumbs up** - Activate focused item
-- **Point** - Select elements (future enhancement)
-- **Open palm** - General navigation gesture
+- **Thumbs up** - Activate focused element
 
-### Accessibility Features
-- **ARIA-compliant focus management** with visible focus ring
-- **Live on-screen feedback** (command transcript + gesture overlay)
-- **Link indexing** with numbered overlays for easy selection
-- **Screen reader support** with proper announcements
-- **Keyboard navigation** fallback for all features
+## 📸 Demo Walkthrough
 
-### PDF Support
-- **pdf.js integration** for viewing PDF documents
-- **Voice-controlled PDF navigation** (page turning, zoom)
-- **Gesture-controlled PDF interaction**
+1. **Show Links** → Click microphone, say "Show links" to display numbered overlays
+2. **Open Link 3** → Say "Open link 3" to focus on the third link
+3. **Next PDF Page** → Load PDF, say "Next page" to navigate
+4. **Scroll/Zoom** → Use "Scroll down" or "Zoom in" commands
+
+## 🔒 Privacy
+
+**All processing is on-device; no audio or video media is stored or transmitted.**
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React + TypeScript
-- **Styling**: Styled Components
 - **Voice Recognition**: Web Speech API
-- **Gesture Recognition**: MediaPipe Hands / OpenCV
+- **Gesture Recognition**: MediaPipe Tasks Vision
 - **PDF Viewer**: pdf.js
-- **Testing**: Cypress + axe-core for accessibility testing
-- **Build Tool**: Create React App
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- Modern browser with Web Speech API support
-- Camera access for gesture recognition
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/gesture-voice-navigation.git
-   cd gesture-voice-navigation
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-### Usage
-
-#### Voice Control
-1. Click the microphone button (🎤) in the bottom-left corner
-2. Grant microphone permissions when prompted
-3. Speak commands like:
-   - "Scroll down"
-   - "Zoom in"
-   - "Show links"
-   - "Open link 3"
-   - "Activate"
-
-#### Gesture Control
-1. Click the hand button (👋) next to the microphone
-2. Grant camera permissions when prompted
-3. Use hand gestures:
-   - **Swipe up/down** to scroll
-   - **Pinch** to toggle link numbers
-   - **Thumbs up** to activate focused element
-
-#### Keyboard Navigation
-- Use **Tab** to navigate between focusable elements
-- Use **Enter** or **Space** to activate elements
-- Use **Arrow keys** for additional navigation
-
-## 🧪 Testing
-
-### Run Accessibility Tests
-```bash
-npm run test:accessibility
-```
-
-### Run All Tests
-```bash
-npm test
-```
-
-### Run Cypress Tests
-```bash
-npm run cypress:open
-```
+- **Styling**: Styled Components
+- **Testing**: Cypress + axe-core
 
 ## 📁 Project Structure
 
@@ -127,35 +62,56 @@ src/
 │   └── PdfViewer.tsx         # PDF document viewer
 ├── hooks/
 │   ├── useSpeechRecognition.ts    # Web Speech API integration
-│   ├── useGestureRecognition.ts   # MediaPipe gesture detection
+│   ├── useGestureRecognition.ts   # Gesture detection
 │   └── useFocusManagement.ts      # ARIA focus management
-├── types/
-│   └── index.ts              # TypeScript type definitions
-└── App.tsx                   # Main application component
+└── types/
+    └── index.ts              # TypeScript definitions
 ```
 
-## 🔧 Configuration
+## 🧪 Testing
 
-### Voice Recognition
-The voice recognition system uses the Web Speech API and supports:
-- Continuous listening mode
-- Interim results for real-time feedback
-- English language recognition
-- Custom command processing
+```bash
+# Run accessibility tests
+npm run test:accessibility
 
-### Gesture Recognition
-The gesture system uses MediaPipe Hands for:
-- Real-time hand tracking
-- Multiple gesture detection
-- Confidence scoring
-- Camera feed processing
+# Run all tests
+npm test
 
-### Accessibility
-The application follows WCAG 2.1 guidelines with:
-- Proper ARIA labels and roles
-- Keyboard navigation support
-- Screen reader compatibility
-- High contrast focus indicators
+# Run Cypress tests
+npm run cypress:open
+```
+
+## 🔧 Troubleshooting
+
+### Browser Support
+- **Chrome/Edge**: Full support for voice and gesture features
+- **Firefox**: Voice commands work, gesture recognition limited
+- **Safari**: Voice commands work, gesture recognition not supported
+
+### Permissions
+- **Microphone**: Required for voice commands
+- **Camera**: Required for gesture recognition
+- **File Access**: Required for PDF uploads
+
+### Performance Tips
+- **Good lighting** improves gesture recognition accuracy
+- **Clear speech** enhances voice command detection
+- **Stable internet** for PDF loading and Web Speech API
+
+### Common Issues
+- **"Voice not working"**: Check microphone permissions and HTTPS requirement
+- **"Camera black screen"**: Grant camera permissions and check browser support
+- **"PDF won't load"**: Try uploading local PDF files instead of external URLs
+
+## 🗺️ Roadmap
+
+- [ ] **Multi-language voice support** (Spanish, French, German)
+- [ ] **Advanced gesture recognition** (sign language, custom gestures)
+- [ ] **Mobile app version** with native camera integration
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
@@ -165,30 +121,9 @@ The application follows WCAG 2.1 guidelines with:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - [MediaPipe](https://mediapipe.dev/) for hand gesture recognition
 - [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) for voice recognition
 - [pdf.js](https://mozilla.github.io/pdf.js/) for PDF rendering
 - [axe-core](https://github.com/dequelabs/axe-core) for accessibility testing
-
-## 🐛 Known Issues
-
-- Voice recognition requires HTTPS in production
-- Gesture recognition works best with good lighting
-- PDF viewer may have performance issues with large documents
-- Some browsers may have limited Web Speech API support
-
-## 🔮 Future Enhancements
-
-- [ ] Multi-language voice support
-- [ ] Advanced gesture recognition (sign language)
-- [ ] Eye tracking integration
-- [ ] Mobile app version
-- [ ] Offline voice processing
-- [ ] Custom gesture training
-- [ ] Integration with assistive technologies
